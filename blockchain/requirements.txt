@@ -1,0 +1,4 @@
+ecdsa==0.18.0
+pycryptodome==3.18.0
+mnemonic==0.20
+flask==2.3.3

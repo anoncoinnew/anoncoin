@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(271, 81%, 56%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(271, 81%, 56%);
+  --radius: 0.5rem;
+  
+  /* Custom anonCoin colors */
+  --anon-black: hsl(0, 0%, 4%);
+  --anon-dark: hsl(0, 0%, 10%);
+  --anon-gray: hsl(0, 0%, 18%);
+  --anon-purple: hsl(271, 81%, 56%);
+  --anon-green: hsl(158, 64%, 52%);
+  --anon-red: hsl(0, 84%, 60%);
+  --anon-amber: hsl(43, 96%, 56%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(271, 81%, 56%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(271, 81%, 56%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background: linear-gradient(135deg, var(--anon-black) 0%, var(--anon-dark) 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    background: rgba(45, 45, 45, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 20px hsla(271, 81%, 56%, 0.3);
+  }
+  
+  .glow-green {
+    box-shadow: 0 0 20px hsla(158, 64%, 52%, 0.3);
+  }
+  
+  .glow-red {
+    box-shadow: 0 0 20px hsla(0, 84%, 60%, 0.3);
+  }
+  
+  .pulse-animation {
+    animation: pulse 2s infinite;
+  }
+  
+  .mining-progress {
+    background: linear-gradient(90deg, var(--anon-purple) 0%, var(--anon-green) 100%);
+    animation: mining-glow 3s ease-in-out infinite alternate;
+  }
+  
+  .anon-gradient {
+    background: linear-gradient(135deg, var(--anon-purple) 0%, var(--anon-green) 100%);
+  }
+  
+  .nav-active {
+    background: var(--anon-purple);
+    color: white;
+    box-shadow: 0 0 15px hsla(271, 81%, 56%, 0.4);
+  }
+  
+  .nav-inactive {
+    background: var(--anon-gray);
+    color: var(--muted-foreground);
+  }
+  
+  .nav-inactive:hover {
+    background: hsl(240, 3.7%, 25%);
+    color: var(--foreground);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes mining-glow {
+  from { box-shadow: 0 0 10px hsla(271, 81%, 56%, 0.5); }
+  to { box-shadow: 0 0 30px hsla(158, 64%, 52%, 0.8); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--anon-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--anon-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--anon-purple);
+}
+
+/* Fonts */
+.font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+}
+
+/* Anonymous theme utilities */
+.bg-anon-black { background-color: var(--anon-black); }
+.bg-anon-dark { background-color: var(--anon-dark); }
+.bg-anon-gray { background-color: var(--anon-gray); }
+.bg-anon-purple { background-color: var(--anon-purple); }
+.bg-anon-green { background-color: var(--anon-green); }
+.bg-anon-red { background-color: var(--anon-red); }
+.bg-anon-amber { background-color: var(--anon-amber); }
+
+.text-anon-purple { color: var(--anon-purple); }
+.text-anon-green { color: var(--anon-green); }
+.text-anon-red { color: var(--anon-red); }
+.text-anon-amber { color: var(--anon-amber); }
+
+.border-anon-gray { border-color: var(--anon-gray); }
+.border-anon-purple { border-color: var(--anon-purple); }
